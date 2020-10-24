@@ -16,8 +16,21 @@ public class Task03 {
 
         // TODO: Пишите код здесь
         int[] arr = new int[len];
+        boolean fl=true;
+        System.out.print("Введите массив через пробел: ");
         for (int i = 0; i < arr.length; i++) {
             arr[i] = scanner.nextInt();
         }
+        int itemOfArr=arr[0];
+        for(int item:arr)
+        {
+            if(itemOfArr!=item)
+            {
+                fl=false;
+                break;
+            }
+        }
+        System.out.print((fl) ? "Yes" : "No");
+
     }
 }

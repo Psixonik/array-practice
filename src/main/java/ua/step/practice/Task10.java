@@ -18,10 +18,19 @@ import java.util.Scanner;
  *      Индекс элемента 12
  */
 public class Task10 {
+    public static void Show(int[]arr, int len, int index)
+    {
+        System.out.print("Исходный массив ["+arr[0]+", ");
+        for(int i=1;i<len-1;i++)
+        {
+            System.out.print(arr[i]+", ");
+        }
+        System.out.print(arr[len-1]+"]\n");
+        System.out.print("Индекс элемента "+index);
+    }
     public static void main(String[] args) {
         // TODO: не менять стоки ниже - нобходимо для тестирования @see ua.step.homework01.TaskTest10
         long seed = args.length > 0 ? Long.parseLong(args[0]) : LocalDateTime.now().toEpochSecond(ZoneOffset.UTC);
-
         // Использовать для генерирования элементов массива
         Random rnd = new Random(seed);
 
@@ -29,8 +38,21 @@ public class Task10 {
         System.out.print("Введите размер массива: ");
         int len = scanner.nextInt();
 
-        int[] arr;
         // TODO: Пишите код здесь
-
+        int[] arr=new int[len];
+        int index=-1;
+        for(int i=0;i<len;i++)
+        {
+            arr[i]=rnd.nextInt(34);
+        }
+        for(int i=1;i<len-1;i++)
+        {
+            if(arr[i]!=0 && arr[i-1]!=0 && arr[i+1]!=0 && arr[i]%arr[i-1]==0 && arr[i]%arr[i+1]==0)
+            {
+                index=i;
+                break;
+            }
+        }
+        Show(arr, len, index);
     }
 }

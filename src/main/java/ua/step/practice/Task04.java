@@ -17,6 +17,28 @@ public class Task04 {
         int len = scanner.nextInt();
 
         // TODO: Пишите код здесь
-
+        int[] arr = new int[len];
+        System.out.print("Введите массив через пробел: ");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        boolean fl=true;
+        int itemOfArr;
+        int secodnItemOfArr;
+        for(int i=0;i<len;i++)
+        {
+            itemOfArr=arr[i];
+            for(int j=i+1;j<len;j++)
+            {
+                secodnItemOfArr=arr[j];
+                if(itemOfArr==secodnItemOfArr)
+                {
+                    fl=false;
+                    break;
+                }
+            }
+        }
+        String answer = (fl) ? "yes" : "no";
+        System.out.print(answer);
     }
 }

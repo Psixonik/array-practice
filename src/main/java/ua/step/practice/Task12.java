@@ -1,6 +1,8 @@
 package ua.step.practice;
 
+import java.lang.reflect.Array;
 import java.util.Scanner;
+
 
 /**
  * Программа должна выводить слово Yes для симметрич-
@@ -20,15 +22,36 @@ import java.util.Scanner;
  *
  *
  */
+
 public class Task12 {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите размернось массива (сколько строк и колонок): ");
         int rows = scanner.nextInt();
         int cols = scanner.nextInt();
 
-        int[][] marr;
         // TODO: Пишите код здесь
-
+        int[][] marr=new int[rows][cols];
+        boolean fl=true;
+        for(int i=0;i<rows;i++)
+        {
+            for(int j=0;j<cols;j++)
+            {
+                marr[i][j]=scanner.nextInt();
+            }
+        }
+        for(int i=0;i<rows;i++)
+        {
+            for(int j=0,k=Array.getLength(marr[i])-1;j<cols/2;j++,k--)
+            {
+                if(marr[i][j]!=marr[i][k])
+                {
+                    fl=false;
+                    break;
+                }
+            }
+        }
+        System.out.print((fl) ? "Yes" : "No");
     }
 }
